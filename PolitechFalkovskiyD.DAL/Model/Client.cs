@@ -60,16 +60,16 @@ namespace PolitechFalkovskiyD.DAL.Model
             } 
         }
 
-        public string ShortName { 
+       /* public string ShortName { 
             get 
             {
                 if (!string.IsNullOrWhiteSpace(LName))
                     return string.Format("{0} {1}. {2}.", FName, SName[0], LName[0]);
                 else
-                    return string.Format("{0} {1}. {2}.", FName, SName[0]);
+                    return string.Format("{0} {1}.", FName, SName[0]);
                 //return string.Format("{0} {1}. {2}.", FName, SName[0], !string.IsNullOrWhiteSpace(LName) != null ? LName[0].ToString());
             } 
-        }
+        } */
 
         public string PhoneNumber { get; set; }
         public int Sex { get; set; }
