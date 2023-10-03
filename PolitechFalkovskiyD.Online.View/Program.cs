@@ -1,39 +1,38 @@
 ﻿using PolitechFalkovskiyD.BLL;
-using PolitechFalkovskiyD.DAL;
-using PolitechFalkovskiyD.DAL.Model;
+using PolitechFalkovskiyD.BLL.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Configuration;
-using System.Security.Cryptography.X509Certificates;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text;
 using System.Threading;
-using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 
 namespace PolitechFalkovskiyD.Online.View
 {
     internal class Program
     {
-        static string path = ConfigurationManager.
-            ConnectionStrings["DefaultConnection"].
-            ConnectionString;
+        static string path = ConfigurationManager
+            .ConnectionStrings["DefaultConnection"]
+            .ConnectionString;
+
         static void Main(string[] args)
         {
             FirstMenu();
         }
+
         public static void FirstMenu()
         {
             Console.Clear();
-            Console.WriteLine("Выберите вариант: ");
             Console.WriteLine("1) Авторизация");
             Console.WriteLine("2) Регистрация");
             Console.WriteLine("3) Выход");
-            int choice = Convert.ToInt32(Console.ReadLine());
-            switch (choice)
+            int ch = int.Parse(Console.ReadLine());
+            switch (ch)
             {
                 case 1:
-                    Authoriztion();
+                    Authorization();
                     break;
                 case 2:
                     Registration();
@@ -42,59 +41,60 @@ namespace PolitechFalkovskiyD.Online.View
                     Environment.Exit(0);
                     break;
             }
-            
         }
-        public static void Authoriztion()
+        public static void Authorization()
         {
-            Client client = new Client();
-            Console.Write("Введите логин:" );
+            ClientDTO client = new ClientDTO();
+            Console.Write("Введите логин: ");
             client.Email = Console.ReadLine();
             Console.Write("Введите пароль: ");
             client.Password = Console.ReadLine();
 
             ServiceClient serviceClient = new ServiceClient(path);
-            Client client = serviceClient.AuthorizationClient(client);
-            if(client != null)
+            client = serviceClient.AuthorizationClient(client);
+            if (client != null)
             {
                 Console.WriteLine("Приветствую тебя, " + client.FullName);
             }
             else
             {
-                Console.WriteLine("ТАкой пользователь не зарегестрирован");
+                Console.WriteLine("Такой пользователь не зарегистрирован");
                 Thread.Sleep(2000);
                 FirstMenu();
             }
         }
-        public static void Registration() 
+        public static void Registration()
         {
-            Client client = new Client();
-            Console.Write("Введите логин:" );
-            client.Email = Console.ReadLine();
+            ClientDTO client = new ClientDTO();
+            Console.Write("Введите email: ");
 
+            client.Email = Console.ReadLine();
             Console.Write("Введите пароль: ");
             client.Password = Console.ReadLine();
 
-            Console.Write("Введите Имя: ");
+            Console.Write("Введите имя: ");
             client.FName = Console.ReadLine();
 
-            Console.Write("Введите Фамилию: ");
-            client.FName = Console.ReadLine();
+            Console.Write("Введите фамилию: ");
+            client.SName = Console.ReadLine();
 
-            Console.Write("Введите Отчество: ");
-            client.FName = Console.ReadLine();
+            Console.Write("Введите отчество: ");
+            client.LName = Console.ReadLine();
 
             ServiceClient serviceClient = new ServiceClient(path);
             var result = serviceClient.RegisterClient(client);
-            if(result.isError)
+            if (result.isError)
             {
-                Console.WriteLine(result.message);
+                Console.Write(result.message);
             }
             else
             {
+
                 Console.WriteLine("Все прошло успешно");
                 Thread.Sleep(2000);
                 FirstMenu();
             }
+
         }
     }
 }

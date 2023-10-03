@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolitechFalkovskiyD.Online.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolitechFalkovskiyD.BLL", "PolitechFalkoskiy.BLL\PolitechFalkovskiyD.BLL.csproj", "{6BEE7229-35FD-4FF0-830B-B20A1FEF7453}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolitechFalkovskiyD.WpfApp", "PolitechFalkovskiyD.WpfApp\PolitechFalkovskiyD.WpfApp.csproj", "{7BD3EE15-6781-4E6D-96D8-D378A8E704A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{6BEE7229-35FD-4FF0-830B-B20A1FEF7453}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6BEE7229-35FD-4FF0-830B-B20A1FEF7453}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6BEE7229-35FD-4FF0-830B-B20A1FEF7453}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BD3EE15-6781-4E6D-96D8-D378A8E704A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BD3EE15-6781-4E6D-96D8-D378A8E704A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BD3EE15-6781-4E6D-96D8-D378A8E704A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BD3EE15-6781-4E6D-96D8-D378A8E704A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -55,10 +55,6 @@
       <Project>{6bee7229-35fd-4ff0-830b-b20a1fef7453}</Project>
       <Name>PolitechFalkovskiyD.BLL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PolitechFalkovskiyD.DAL\PolitechFalkovskiyD.DAL.csproj">
-      <Project>{09ee8212-5ffb-449d-bacb-9c4592865b50}</Project>
-      <Name>PolitechFalkovskiyD.DAL</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

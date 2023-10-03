@@ -5,24 +5,24 @@ using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PolitechFalkovskiyD.DAL.Model
+namespace PolitechFalkovskiyD.BLL.Model
 {
-    public class Client
+    public class ClientDTO
     {
-        public Client() : this(0)
+        public ClientDTO() : this(0)
         {
 
         }
-        public Client(int Id) : this(Id, DateTime.Now)
+        public ClientDTO(int Id) : this(Id, DateTime.Now)
         {
 
         }
-        public Client(int Id, DateTime CreateDate)
+        public ClientDTO(int Id, DateTime CreateDate)
             : this(Id, CreateDate, "")
         {
 
         }
-        public Client(int Id, DateTime CreateDate, string PathToImag)
+        public ClientDTO(int Id, DateTime CreateDate, string PathToImag)
         {
             this.Id = Id;
             this.CreateDate = CreateDate;
@@ -67,8 +67,8 @@ namespace PolitechFalkovskiyD.DAL.Model
         }
         public string PathToImage { get; set; }
 
-        public Address Address { get; set; }
-        public Account[] Accounts { get; set; }
+        public AddressDTO Address { get; set; }
+        public AccountDTO[] Accounts { get; set; }
     }
 
 

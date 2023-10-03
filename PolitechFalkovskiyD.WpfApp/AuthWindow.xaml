@@ -1,0 +1,43 @@
+﻿<Window x:Class="PolitechFalkovskiyD.WpfApp.AuthWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PolitechFalkovskiyD.WpfApp"
+        mc:Ignorable="d"
+        Title="AuthWindow" Height="600" Width="800">
+    <Grid Margin="37,0,-37,0">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="77*"></ColumnDefinition>
+            <ColumnDefinition Width="238*"></ColumnDefinition>
+            <ColumnDefinition Width="289*"></ColumnDefinition>
+            <ColumnDefinition Width="93*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="1" Grid.Column="1" FontSize="35">
+            Login:
+        </Label>
+        <TextBox Grid.Row="1" Grid.Column="2" FontSize="35" VerticalContentAlignment="Center" x:Name="tbxEmail">
+            
+        </TextBox>
+        <Label Grid.Row="2" Grid.Column="1" FontSize="35">
+            Password:
+        </Label>
+        <PasswordBox Grid.Row="2" Grid.Column="2" FontSize="35" 
+                     VerticalContentAlignment="Center" x:Name="pwdPassword">
+        </PasswordBox>
+
+        <Button Grid.Row="3" Grid.Column="2" FontSize="35" VerticalContentAlignment="Center"
+                Content="Войти" 
+                x:Name="btnAuth"
+                Click="btnAuth_Click"></Button>
+    </Grid>
+</Window>

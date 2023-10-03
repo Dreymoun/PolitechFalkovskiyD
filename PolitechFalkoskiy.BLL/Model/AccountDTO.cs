@@ -5,9 +5,9 @@ using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PolitechFalkovskiyD.DAL.Model
+namespace PolitechFalkovskiyD.BLL.Model
 {
-    public class Account
+    public class AccountDTO
     {
         public int Id { get; set; }
         public DateTime CreateDate { get; set; }

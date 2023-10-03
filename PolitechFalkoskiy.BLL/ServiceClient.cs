@@ -1,4 +1,7 @@
-﻿using PolitechFalkovskiyD.DAL;
+﻿using AutoMapper;
+using PolitechFalkoskiy.BLL;
+using PolitechFalkovskiyD.BLL.Model;
+using PolitechFalkovskiyD.DAL;
 using PolitechFalkovskiyD.DAL.Model;
 using System;
 using System.Collections.Generic;
@@ -10,24 +13,33 @@ namespace PolitechFalkovskiyD.BLL
 {
     public class ServiceClient
     {
-        private readonly string path = "";
-        public ServiceClient(string path) 
+        private Repository<Client> repo = null;
+        private ReturnResult<Client> result = null;
+        private readonly IMapper _iMapper;
+        public ServiceClient(string path)
         {
-            this.path = path;
-        }
-        public (bool isError, string message) RegisterClient(Client client)
-        {
-            RepositoryClient repo = new RepositoryClient(path);
-            ReturnSesultClient result = repo.CreateClient(client);
-            return (result.IsError, result.Exception!=null ? result.Exception.Message : "");
+            repo = new Repository<Client>(path);
+            _iMapper = SettingAutomapper.Init().CreateMapper();
         }
 
-        public void AuthorizationClient(Client client)
+        public (bool isError, string message) RegisterClient(ClientDTO client)
         {
-            RepositoryClient repo = new RepositoryClient(path);
-            ReturnSesultClient result = repo.GetClient(client.Email client.Password);
+            result = repo.Create(_iMapper.Map<Client>(client));
 
-            return result.Client;
+            return (result.IsError,
+                result.Exception != null
+                 ? result.Exception.Message
+                 : "");
+        }
+
+        public ClientDTO AuthorizationClient(ClientDTO client)
+        {
+            result = repo.GetAll();
+
+            result.Data = result.ListData.FirstOrDefault
+                (f=>f.Email == client.Email && f.Password == client.Password);
+
+            return _iMapper.Map<ClientDTO>(result.Data);
         }
     }
 }
